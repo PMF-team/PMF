@@ -6,7 +6,7 @@ import Lsystem from "../components/formula";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  Lsystem(3);
+  Lsystem();
 
   return (
     <>
@@ -20,7 +20,7 @@ export default function Home() {
         <div className={styles.description}>
           <p>Get started with PMF;</p>
         </div>
-        <Canvas>{/* three js data */}</Canvas>
+        
       </main>
     </>
   );
