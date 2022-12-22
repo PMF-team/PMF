@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-
-export default function Lsystem() {
+//PROPS ??? TO CONTEXT
+export default function useLsystem(blockchainAdress) {
   // const [showMenu, setMenu] = useState(false);
-  //аксиома для дерева - наш кошелек 
+  //аксиома для дерева - наш кошелек
   //если при создании графики будет слишком сложное дерево, можно обрезать аксиому - оставить 3-5 символов
   //еще кошельки для примеров
   //0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
   //0x70997970C51812dc3A010C7d01b50e0d17dc79C8
   //0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
-  const [axiom, setAxiom] = useState("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266");
+  const [axiom, setAxiom] = useState(blockchainAdress);
   //количество ярусов дерева - итераций, возможно сочетать потом с возрастом дерева
   const [n, setN] = useState(3);
   //правила, задающие формулу дерева
@@ -46,9 +46,7 @@ export default function Lsystem() {
   //собираем формулу дерева по аксиоме и по заданным правилам
   useEffect(() => {
     for (let i = 1; i <= n; i++) {
-      
       for (let j = 0; j < curSentence.length; j++) {
-
         switch (curSentence[j]) {
           case "F":
           case "f":
@@ -57,8 +55,8 @@ export default function Lsystem() {
             newSentence += rule0;
             break;
           case "0":
-          case "1": 
-          case "2": 
+          case "1":
+          case "2":
           case "3":
             newSentence += rule1;
             break;
@@ -90,6 +88,5 @@ export default function Lsystem() {
     setTrigger(true);
   }, []);
 
-  console.log("EXPORT FINAL SENTECE", sentence);
-  
+  return console.log("EXPORT FINAL SENTECE", sentence);
 }
